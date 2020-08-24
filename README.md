@@ -2,22 +2,83 @@
 
 Este ejercicio es para conocer las características generales del servicio de [Aurora AWS](https://aws.amazon.com/es/rds/aurora/).
 
-El objetivo es aprender, a crear una base de datos en este servicio, conectarse con un cliente, hacer respaldos y restaurar nuestra BD
+El objetivo es aprender:
+ - Hacer una base de datos Aurora
+ - Conectarse con un cliente
+ - Hacer respaldos
+ - Restaurar nuestra BD
 
 
 ## Instrucciones
 
 Hacer **Fork** de este repositorio en tu cuenta de GitHub.
 
-Ir a la región de AWS que ocuparás durante el curso:
- Virginia (us-east-1)
- Crear un **Key Pair** en la consola de EC2 que lleve por nombre `auroraDB-example`.
+Los servicios que ocuparemos en este taller son:
+ - Region AWS Virginia (us-east-1)
+ - S3
+ - Aurora
+ - Cloud9
+ 
+### Configuración general del ambiente de trabajo
+   
+   -  Seleccionar Virginia (us-east-1)
+   
+   -  Entrar y clonar el repositorio en un ambiente de cloud9
+    
+###  Configurar nuesta base de datos
 
-- [ ] Configuracion general del ambiente de trabajo
-    - [ ] Seleccionar Virginia (us-east-1)
-    - [ ] Crear un **Key Pair** en la consola de EC2 que lleve por nombre `auroraDB-example`.
-    - [ ] Entrar y clonar el repositorio en cloud9 
-- [ ] Configurar nuesta base de datos
-    - [ ]  En la pantalla Amazon RDS, ubicada a la izquierda de la barra de navegación, seleccione Clústeres.
-    !(https://d1.awsstatic.com/tmt/configure-connect-serverless-mysql-database-aurora/aurora-serverless-2a.6b12c9e63bd19da4fdf192a2782b4013612c37da.png)
+   - 1  En la pantalla Amazon RDS, ubicado al centro, seleccione **Create databse**.
+    ![](https://d1.awsstatic.com/screenshots/10-min-tut-aurora-autoscaling/autoscaling-1.3.1.4f1479d5b9cde064538c4f4aaf479ac893135776.png)
+    
+ - 2 En el motor de base de datos, seleccione **Amazon Aurora** .
+    ![](https://d1.awsstatic.com/screenshots/10-min-tut-aurora-autoscaling/autoscaling-1.4.2f8f85673625fc52b18604f39998742479ea3ace.png)
+
+   - 3 En Edición, seleccione **Amazon Aurora con compatibilidad con MySQL**.
+    ![](https://d1.awsstatic.com/screenshots/10-min-tut-aurora-autoscaling/autoscaling-1.4.2f8f85673625fc52b18604f39998742479ea3ace.png)
+    
+    
+  -  4 En Versión, seleccione su versión preferida de Aurora.
+    ![](https://d1.awsstatic.com/screenshots/10-min-tut-aurora-autoscaling/autoscaling-1.6.0abf12afd092721466c71329f05ea05ed0204e6c.png)
+    
+    
+  -  5 Elija un identificador para su clúster de base de datos de Aurora, por ejemplo **database-1** .
+    ![](https://d1.awsstatic.com/screenshots/10-min-tut-aurora-autoscaling/autoscaling-1.10.5a485df49d06c7aba9d2d442021ac6641c1c1646.png)
+    
+    
+   -  7 Seleccione la VPC donde desea crear la base de datos. 
+   **Tenga en cuenta que una vez creada, la base de datos no se puede migrar a una VPC diferente**.
+    ![](https://d1.awsstatic.com/screenshots/10-min-tut-aurora-autoscaling/autoscaling-1.13.608f43a3c074e4acf3bd53bac32065fca4cf92db.png)
+   
+  -  8 Seleccione la VPC donde desea crear la base de datos. 
+    ![](https://d1.awsstatic.com/Getting%20Started/Boosting%20Database%20Performance/image065.6fb24cf5a5d42556e7b59e493264453976206c39.png)
+    
+
+
+
+### Cargar data de un S3
+
+1. Ingresar a [Mockaroo](https://www.mockaroo.com) y generar las siguientes columnas 
+
+- id
+- first_name
+- last_name
+- email
+- gender
+
+2. item 2
+
+    ```sql
+	LOAD DATA FROM S3 's3://<BUCKET-NAME>/customerdata.csv' 
+    INTO TABLE store-schema.customer-table
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    (ID, FIRSTNAME, LASTNAME, ADDRESS, EMAIL, PHONE);
+    ```
+3. item 3
+
+
+
+
+
+
 
