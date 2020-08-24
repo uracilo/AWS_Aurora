@@ -1,0 +1,9 @@
+[{
+        "ParameterKey": "DBUsername",
+        "ParameterValue": "<ChangeUSR>"
+    },
+    {
+        "ParameterKey": "DBPassword",
+        "ParameterValue": "<ChangePWD>"
+    }
+]

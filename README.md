@@ -55,30 +55,21 @@ Los servicios que ocuparemos en este taller son:
 
 
 
-### Cargar data de un S3
 
-1. Ingresar a [Mockaroo](https://www.mockaroo.com) y generar las siguientes columnas 
 
-- id
-- first_name
-- last_name
-- email
-- gender
+### Generarlo con CloudFormation
 
-2. item 2
+1. Run instructions
 
-    ```sql
-	LOAD DATA FROM S3 's3://<BUCKET-NAME>/customerdata.csv' 
-    INTO TABLE store-schema.customer-table
-    FIELDS TERMINATED BY ','
-    LINES TERMINATED BY '\n'
-    (ID, FIRSTNAME, LASTNAME, ADDRESS, EMAIL, PHONE);
+    ```bash
+	aws cloudformation create-stack --stack-name aurora --template-body file://Aurora.yml --parameters file://stack-01.json
     ```
-3. item 3
 
+2. Delete all 
 
+    ```bash
+	aws cloudformation delete-stack --stack-name aurora 
 
-
-
+    ```
 
 
