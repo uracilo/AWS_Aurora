@@ -1,9 +1,9 @@
 [{
         "ParameterKey": "DBUsername",
-        "ParameterValue": "<ChangeUSR>"
+        "ParameterValue": "admin"
     },
     {
         "ParameterKey": "DBPassword",
-        "ParameterValue": "<ChangePWD>"
+        "ParameterValue": "password"
     }
 ]
