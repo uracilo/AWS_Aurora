@@ -62,7 +62,7 @@ Los servicios que ocuparemos en este taller son:
 1. Run instructions
 
     ```bash
-	aws cloudformation create-stack --stack-name aurora --template-body file://Aurora.yml --parameters file://stack-01.json
+	aws cloudformation create-stack --stack-name aurora --template-body file://aurora.yml --parameters file://stack-01.json
     ```
 
 2. Delete all 
